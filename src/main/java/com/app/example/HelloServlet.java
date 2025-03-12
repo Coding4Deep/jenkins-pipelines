@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-public class App extends SpringBootServletInitializer {
-    
+public class HelloServlet extends SpringBootServletInitializer {
+
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(App.class);
+        return application.sources(HelloServlet.class);
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(App.class, args);
+        SpringApplication.run(HelloServlet.class, args);
     }
 
     @RequestMapping(value = "/")
