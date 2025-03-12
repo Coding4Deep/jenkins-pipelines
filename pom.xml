@@ -15,8 +15,8 @@
 <properties> 
 <maven.compiler.source>17</maven.compiler.source> 
 <maven.compiler.target>17</maven.compiler.target> 
-<sonar.host.url>http://192.168.33.11:9000</sonar.host.url>
-<sonar.token>sqa_63bd80a7ed8c386c0a457df369206aec827b34f0</sonar.token> 
+<!-- <sonar.host.url>http://192.168.33.11:9000</sonar.host.url>
+<sonar.token>sqa_63bd80a7ed8c386c0a457df369206aec827b34f0</sonar.token> -->
 </properties>
 
 	
