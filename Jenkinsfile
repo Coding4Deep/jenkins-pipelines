@@ -4,7 +4,7 @@ node {
     // Define Maven tool and store its path
     def MVN = tool name: "MAVEN"
     def remoteServer = "vagrant@192.168.33.11"
-    def warFile = "target/jenkins-project.war"
+    def warFile = "target/local-project.war "
     def remotePath = "/opt/tomcat/webapps/"
     
     stage('Fetch') {
