@@ -17,6 +17,26 @@
     </properties>
 
     <dependencies>
+
+                 <!-- Spring Boot Starter Web -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <!-- Spring Boot Starter Servlet (For WAR Deployment) -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-tomcat</artifactId>
+        <scope>provided</scope>
+    </dependency>
+
+    <!-- Spring Boot Parent -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.1</version>
+        <type>pom</
         <!-- Servlet API -->
         <dependency>
             <groupId>jakarta.servlet</groupId>
