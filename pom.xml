@@ -64,7 +64,7 @@
     </dependencies>
 
     <build>
-        <finalName>local-project</finalName>
+        
         <plugins>
             <!-- Compiler Plugin -->
             <plugin>
