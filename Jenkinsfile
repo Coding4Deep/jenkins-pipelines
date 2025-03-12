@@ -22,9 +22,9 @@ node {
         sh "$MVN/bin/mvn jacoco:report"
     }
     
-     stage('Upload to Nexus') {
+  /*   stage('Upload to Nexus') {
         sh "$MVN/bin/mvn deploy"
-    } 
+    }  */
     
     stage('deploy to the tomcat'){
            sshagent(['vagrant-ssh']) {
