@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com</groupId>
-    <artifactId>java-sonar-scanner-project</artifactId>
+    <artifactId>jenkins-project</artifactId>
     <version>3.1-SNAPSHOT</version>
     <packaging>war</packaging>
     <url>http://maven.apache.org</url>
