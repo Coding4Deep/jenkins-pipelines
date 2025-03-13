@@ -18,28 +18,20 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+
+         stage('Jacoco Report'){
+            steps{
+                sh 'mvn test jacoco:report'  
+            }
+        }
         
         stage('SonarQube'){
             steps{
                 sh 'mvn sonar:sonar'
             }
         }
-        stage('Jacoco Report'){
-            steps{
-                sh 'mvn test jacoco:report'  //  Uses existing config
-            }
-        }    
+           
         
     }
 
-       post {
-            always {
-                jacoco(
-                     execPattern: '**/target/jacoco.exec',
-                     classPattern: '**/target/classes/**/*.class',
-                     sourcePattern: 'src/main/java/**/*.java',
-                     exclusionPattern: 'src/test/**/*.java'
-                     )
-                  }
-               }
 }
