@@ -9,7 +9,7 @@ pipeline {
         stage('checkout') {
             steps {
                 echo 'Getting the project'
-                git 'https://github.com/Coding4Deep/jenkins-pipelines.git'
+                git branch:'main',url: 'https://github.com/Coding4Deep/jenkins-pipelines.git'
             }
         }
         stage('BUILD') {
