@@ -18,5 +18,20 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+        
+        stage('SonarQube'){
+            steps{
+                sh 'mvn sonar:sonar'
+            }
+        }
+        stage('Jacoco Report'){
+            steps{
+                sh 'mvn jacoco:prepare-agent test jacoco:report'
+            }
+        }
+        
+      //  stage('Nexus'){}
+        
+        
     }
 }
