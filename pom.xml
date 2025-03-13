@@ -12,6 +12,14 @@
 <properties> 
 <maven.compiler.source>17</maven.compiler.source> 
 <maven.compiler.target>17</maven.compiler.target> 
+    sonar.projectKey>Pipeline-projects</sonar.projectKey>
+    <sonar.projectName>pipeline-Project</sonar.projectName>
+    <sonar.sources>src/main/java,src/main/webapp</sonar.sources>
+    <sonar.tests>src/test/java</sonar.tests>
+    <sonar.java.binaries>target/classes</sonar.java.binaries>
+    <sonar.junit.reportPaths>target/surefire-reports</sonar.junit.reportPaths>
+    <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+    <sonar.inclusions>src/main/webapp/**/*.jsp</sonar.inclusions>
  <sonar.host.url>http://192.168.33.11:9000</sonar.host.url>
 <sonar.token>sqa_1ea1d49ee057cab0d34953dcb1bfe79d78099b1d</sonar.token> 
 </properties>
