@@ -31,7 +31,20 @@ pipeline {
             }
         }
 
-      //  stage('deploy to tomcat'){}      
+       stage('deploy to tomcat'){
+           steps{
+                sshagent(['vagrant-ssh']) {
+                     sh '''
+                echo "Starting WAR file transfer..."
+                scp -v -o StrictHostKeyChecking=no target/Pipeline-Project.war vagrant@192.168.33.11:/opt/tomcat/webapps/
+                echo "WAR file successfully deployed!"
+            '''
+                    
+                    }
+             } 
+       }
+
+        
     }
 
        post {
