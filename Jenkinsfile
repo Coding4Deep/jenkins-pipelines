@@ -26,15 +26,20 @@ pipeline {
         }
         stage('Jacoco Report'){
             steps{
-                sh 'mvn jacoco:prepare-agent test jacoco:report'
+                sh 'mvn test jacoco:report'  //  Uses existing config
             }
         }    
         
     }
 
-        post {
-        always {
-            jacoco(execPattern: '**/target/jacoco.exec')
-        }
-}
+       post {
+            always {
+                jacoco(
+                     execPattern: '**/target/jacoco.exec',
+                     classPattern: '**/target/classes/**/*.class',
+                     sourcePattern: 'src/main/java/**/*.java',
+                     exclusionPattern: 'src/test/**/*.java'
+                     )
+                  }
+               }
 }
