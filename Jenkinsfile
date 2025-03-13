@@ -30,23 +30,22 @@ pipeline {
                 sh 'mvn sonar:sonar'
             }
         }
-           
-        
+
+      //  stage('deploy to tomcat'){}      
     }
 
-        post {
-            success {
-                    publishHTML(target: [
-                        allowMissing: false,
-                        alwaysLinkToLastBuild: true,
-                        keepAll: true,
-                        reportDir: 'target/site/jacoco',
-                        reportFiles: 'index.html',
-                        reportName: 'JaCoCo Code Coverage Report'
-                    ])
-                }
-            }
+       post {
+        always {
+            junit 'target/surefire-reports/*.xml'  // Publish test results
+            jacoco(
+                execPattern: 'target/jacoco.exec',
+                classPattern: 'target/classes/**/*.class',
+                sourcePattern: 'src/main/java/**/*.java',
+                exclusionPattern: 'src/test/**/*.java'
+            )
         }
+    }
+}
     
 
 
