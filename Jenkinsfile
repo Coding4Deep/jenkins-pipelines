@@ -29,6 +29,11 @@ pipeline {
                 sh 'mvn jacoco:prepare-agent test jacoco:report'
             }
         }
+
+         post {
+        always {
+            jacoco(execPattern: '**/target/jacoco.exec')
+        }
         
       //  stage('Nexus'){}
         
