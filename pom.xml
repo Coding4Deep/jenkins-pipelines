@@ -156,12 +156,12 @@
 <distributionManagement>
     <repository>
         <id>nexus</id>
-        <url>http://192.168.33.11:8081/repository/jenkins-RELEASE/</url>
+        <url>http://192.168.33.11:8081/repository/declarative-RELEASE/</url>
 </repository>
 
     <snapshotRepository>
         <id>nexus</id>
-        <url>http://192.168.33.11:8081/repository/jenkins-SNAPSHOT/</url>
+        <url>http://192.168.33.11:8081/repository/declarative-SNAPSHOT/</url>
     </snapshotRepository>
 </distributionManagement>
 
