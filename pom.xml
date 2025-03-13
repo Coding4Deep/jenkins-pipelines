@@ -146,11 +146,7 @@
                 </execution>
             </executions>
         </plugin>
-		<configuration>
-                  <includes>
-                       <include>**/*</include>  <!-- Includes all files -->
-                  </includes>
-                 </configuration>
+		
 		
         </plugins>
     </build>
