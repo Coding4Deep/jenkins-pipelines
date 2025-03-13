@@ -31,6 +31,13 @@ pipeline {
             }
         }
 
+      stage('NEXUS'){
+            steps{
+                sh 'mvn deploy'
+            }
+        }
+        
+
        stage('deploy to tomcat'){
            steps{
                 sshagent(['vagrant-ssh']) {
