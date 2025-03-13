@@ -28,15 +28,12 @@ pipeline {
             steps{
                 sh 'mvn jacoco:prepare-agent test jacoco:report'
             }
-        }
+        }    
+        
+    }
 
-         post {
+        post {
         always {
             jacoco(execPattern: '**/target/jacoco.exec')
         }
-        
-      //  stage('Nexus'){}
-        
-        
-    }
 }
