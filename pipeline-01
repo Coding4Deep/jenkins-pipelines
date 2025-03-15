@@ -1,4 +1,4 @@
-pipeline {
+vpipeline {
     agent any
 
     environment {
@@ -26,7 +26,7 @@ pipeline {
         stage('Say Hello') {  // Added stage name
             steps {
                script {
-                    currentBuild.displayName = "${BUILD_NUMBER} - Release v${BUILD_NUMBER}"
+                    currentBuild.displayName = "${BUILD_NUMBER} - Release v${env.BUILD_NUMBER}"
                 }  //  Fixed syntax for echo
             }
         }
