@@ -6,7 +6,17 @@ pipeline {
         BUILD_NUMBER="DEV-${env.BUILD_NUMBER}"
     }
 
+   
+
     stages {
+
+       stage('fetch'){
+            steps{
+                 echo 'Getting the project'
+                 git branch:'main',url:'https://github.com/Coding4Deep/jenkins-pipelines.git'
+            }
+        }
+
         stage('Print Variable') {  //  Added stage name
             steps {
                 echo "${my_var}"   //  Correct usage of variable
