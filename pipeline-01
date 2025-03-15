@@ -25,9 +25,9 @@ pipeline {
 
         stage('Say Hello') {  // Added stage name
             steps {
-               
+                    script{
                       currentBuild.displayName = "name-${env.BUILD_NUMBER}-V-${env.BUILD_NUMBER}"
-                 //  Fixed syntax for echo
+               }  //  Fixed syntax for echo
             }
         }
     }
