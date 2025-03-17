@@ -1,0 +1,85 @@
+node{
+    properties([
+        parameters([
+            string(name:'my_string',defaultValue:'Deepak Sagar'),
+            booleanParam(name:'TorF', defaultValue: false),
+            choice(name:'BRANCH',choices:['master','nginx','nexus','maven']),
+            password(name:'PWD',description:'this is my account password'),
+         //   file(name:'Config_file',description:'this is file uploaded by user')
+            
+            ])
+        ])
+        
+    stage('accessing Values'){
+        echo "${params.my_string}"
+        echo "${params.TorF}"
+        echo "${params.BRANCH}"
+        echo "${params.PWD}"
+       // echo "${params.Config_file}"
+        
+    }
+    
+      stage('Try-Catch'){         // ERROR HANDLING
+        try{
+          error "Simulating a build failure" 
+        } catch(Exception e){
+            echo "this build is failed :  ${e}"
+        }
+        
+    }
+    
+    
+    stage('checkout'){
+        git branch : "${params.BRANCH}",url : 'https://github.com/Coding4Deep/Devops-Setup.git'
+        
+    }
+    
+    // TIMESTAMP AND IF-ELSE
+    timestamps{  //using timestamp for this specific stage
+    stage('working with if else'){
+        if ( params.BRANCH == "maven" ){    //you can use also ${params.BRANCH}
+           echo " you are working with: ${params.BRANCH}"
+        } else {
+           echo " you are not working with maven branch: ${params.BRANCH} "
+           }
+       }
+    }
+    
+    //PARALLEL RUN
+    stage('paraller run'){
+        parallel(
+             A:{
+                sh 'echo "running A" '
+                },
+             B:{
+                sh 'echo "runing B" '
+             },     
+             C:{
+                sh 'echo "runing C" '
+             } 
+        )
+    }
+    
+    //Alternate of try-catch
+    stage('Using catchError') {
+        catchError(buildResult: 'SUCCESS') {
+            sh 'exit 1'
+        }
+        sh 'echo "Hello from catchError block"'
+    }
+    
+    //LOOPS
+    stage('using LOOP'){
+        for (int i =0;i<5;i++){
+            echo "$i"
+        }
+    }
+    
+    //TIMEOUT{}
+    stage('using timeout block'){
+        timeout(time:20,unit:'SECONDS'){
+            sh 'sleep 10'
+            sh 'echo "hello deepak" '
+        }
+    }
+}
